@@ -32,7 +32,15 @@ group :test do
   gem 'libnotify', '0.5.9'
   gem 'guard-spork', '0.3.2'
   gem 'spork', '0.9.0'
-end 
+end
+
+# Test gems on Macintosh OS X
+group :test do
+  gem 'rspec-rails', '2.8.1'
+  gem 'capybara', '1.1.2'
+  gem 'rb-fsevent', '0.4.3.1', :require => false
+  gem 'growl', '1.0.3'
+end
 
 # group :production do
 #   gem 'pg', '0.12.2'
