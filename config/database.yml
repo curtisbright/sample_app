@@ -12,6 +12,8 @@ development:
   adapter: postgresql
   encoding: utf8
   database: db/development.pg
+  username: postgres
+  password: test
 
 test:
   adapter: postgresql
@@ -24,6 +26,8 @@ production:
   adapter: postgresql
   encoding: utf8
   database: db/production.pg
+  username: postgres
+  password: test
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
