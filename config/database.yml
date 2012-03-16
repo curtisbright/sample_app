@@ -10,24 +10,24 @@
 #  timeout: 5000
 development:
   adapter: postgresql
-  encoding: utf8
-  database: db/development.pg
-  username: postgres
-  password: test
+#  encoding: utf8
+  database: db/development
+#  username: postgres
+#  password: test
 
 test:
   adapter: postgresql
-  encoding: utf8
-  database: db/test.pg
-  username: postgres
-  password: test
+#  encoding: utf8
+  database: db/test
+#  username: postgres
+#  password: test
 
 production:
   adapter: postgresql
-  encoding: utf8
-  database: db/production.pg
-  username: postgres
-  password: test
+#  encoding: utf8
+  database: db/production
+#  username: postgres
+#  password: test
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
