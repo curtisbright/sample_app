@@ -54,17 +54,14 @@ describe User do
       it { should be_valid }
     end
   end
-end
 
-#require 'spec_helper'
-#
-#describe User do
-##  pending "add some examples to (or delete) #{__FILE__}"
-#
-#  before { @user = User.new(name: "Example User", email: "user@example.com") }
-#
-#  subject { @user }
-#
-#  it { should respond_to(:name) }
-#  it { should respond_to(:email) }
-#end
+  describe "when email address is already taken" do
+    before do
+      user_with_same_email = @user.dup
+      user_with_same_email.email = @user.email.upcase
+      user_with_same_email.save
+    end
+
+    it { should_not be_valid }
+  end
+end
