@@ -10,23 +10,26 @@
 #  timeout: 5000
 development:
   adapter: postgresql
-#  encoding: utf8
   database: db/development
-  username: postgres
+  username: cbright
+#  encoding: utf8
+#  username: postgres
 #  password: test
 
 test:
   adapter: postgresql
-#  encoding: utf8
   database: db/test
-  username: postgres
+  username: cbright
+#  encoding: utf8
+#  username: postgres
 #  password: test
 
 production:
   adapter: postgresql
-#  encoding: utf8
   database: db/production
-  username: postgres
+  username: cbright
+#  encoding: utf8
+#  username: postgres
 #  password: test
 
 # Warning: The database defined as "test" will be erased and
