@@ -16,7 +16,7 @@ development:
 #  username: postgres
 #  password: test
 
-test:
+test: &test
   adapter: postgresql
   database: db/test
   username: cbright
@@ -46,3 +46,6 @@ production:
 #  database: db/production.sqlite3
 #  pool: 5
 #  timeout: 5000
+
+cucumber:
+  <<: *test
