@@ -20,6 +20,7 @@ def sign_in(user)
   click_button "Sign in"
   # Sign in when not using Capybara as well.
   #session[:remember_token] = user.id
+  cookies[:remember_token] = user.remember_token
 end
 
 def valid_login
