@@ -55,6 +55,18 @@ describe 'User pages' do
         it { should have_success_message('Welcome') }
 
         it { should have_link('Sign out') }
+
+        describe 'visit signup again' do
+          before { visit signup_path }
+
+          it { should_not have_title('Sign up') }
+        end
+
+        describe 'submitting to the create action' do
+          before { put signup_path }
+
+          it { should_not have_title('Sign up') }
+        end
       end
 
       it 'should create a user' do
