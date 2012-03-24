@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    flash.now[:error] = 'New Session'
+    #flash.now[:error] = 'New Session'
   end
 
   def create
