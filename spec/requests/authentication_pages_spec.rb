@@ -19,6 +19,8 @@ describe 'Authentication' do
 
       it { should have_title('Sign in') }
       it { should have_error_message('Invalid') }
+      it { should_not have_link('Profile') }
+      it { should_not have_link('Settings') }
       describe 'after visiting another page' do
         before { click_link 'Home' }
         it { should_not have_error_message('') }
