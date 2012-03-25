@@ -1,7 +1,16 @@
 <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+
+  <script language="JavaScript" type="text/javascript">
+  function counter(field)
+  {
+    document.getElementById("chars").innerHTML = (140 - field.value.length) + " characters remaining.";
+  }
+  </script>
+
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+    <%= f.text_area :content, placeholder: "Compose new micropost...", id: 'sig', onkeyup: 'counter(this.form.sig)' %>
+    <div id="chars">140 characters remaining.</div>
   </div>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
