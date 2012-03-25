@@ -173,7 +173,7 @@ describe User do
   end
 
   describe 'following' do
-    let(:other_user) { FactoryGirl.create(:user) }    
+    let(:other_user) { FactoryGirl.create(:user) }
     before do
       @user.save
       @user.follow!(other_user)
@@ -193,6 +193,23 @@ describe User do
       it { should_not be_following(other_user) }
       its(:followed_users) { should_not include(other_user) }
     end
+
+    it 'should destroy associated relationships' do
+      relationships = @user.relationships
+      @user.destroy
+      relationships.each do |relationships|
+        Relationship.find_by_id(relationships.id).should be_nil
+      end
+    end
+
+    it 'should destroy associated reverse_relationships' do
+      reverse_relationships = @user.reverse_relationships
+      @user.destroy
+      reverse_relationships.each do |reverse_relationships|
+        Relationship.find_by_id(reverse_relationships.id).should be_nil
+      end
+    end
+
   end
 
 end
