@@ -53,8 +53,7 @@ describe 'Static pages' do
         describe 'with only one page necessary' do
           before { click_link 'delete' }
 
-          it { should_not have_link('Next') }
-          it { should_not have_link('2') }          
+          it { should_not have_link('Next') }       
         end
       end
 
