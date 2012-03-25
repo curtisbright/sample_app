@@ -42,6 +42,21 @@ describe 'Static pages' do
           it { should_not have_content('microposts') }
         end
       end
+
+      describe 'pagination' do
+        before(:all) { 29.times { FactoryGirl.create(:micropost, user: user) } }
+        after(:all)  { Micropost.delete_all }
+
+        it { should have_link('Next') }
+        it { should have_link('2') }
+
+        describe 'with only one page necessary' do
+          before { click_link "delete" }
+
+          it { should_not have_link('Next') }
+          it { should_not have_link('2') }          
+        end
+      end
     end
   end
 
