@@ -17,18 +17,29 @@ describe 'Static pages' do
     it_should_behave_like 'all static pages'
     it { should_not have_title('| Home') }
 
-    describe "for signed-in users" do
+    describe 'for signed-in users' do
       let(:user) { FactoryGirl.create(:user) }
       before do
-        FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
-        FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
+        FactoryGirl.create(:micropost, user: user, content: 'Lorem ipsum')
+        FactoryGirl.create(:micropost, user: user, content: 'Dolor sit amet')
         sign_in user
         visit root_path
       end
 
-      it "should render the user's feed" do
+      it 'should render the user\'s feed' do
         user.feed.each do |item|
           page.should have_selector("li##{item.id}", text: item.content)
+        end
+      end
+
+      describe 'should count microposts' do
+        it { should have_content('2 microposts') }
+
+        describe 'with proper pluralization' do
+          before { click_link "delete" }
+
+          it { should have_content('1 micropost') }
+          it { should_not have_content('microposts') }
         end
       end
     end
