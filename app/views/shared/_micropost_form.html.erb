@@ -9,7 +9,7 @@
   </script>
 
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost...", id: 'sig', onkeyup: 'counter(this.form.sig)' %>
+    <%= f.text_area :content, placeholder: "Compose new micropost...", onkeyup: 'counter(this.form.micropost_content)' %>
     <div id="chars">140 characters remaining.</div>
   </div>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
